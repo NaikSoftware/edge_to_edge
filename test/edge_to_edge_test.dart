@@ -20,6 +20,6 @@ void main() {
   });
 
   test('setEnabled', () async {
-    await EdgeToEdge.enable(true);
+    await EdgeToEdge.enable(true, SystemUiOverlayStyle.dark);
   });
 }
