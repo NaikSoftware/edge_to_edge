@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:edge_to_edge/edge_to_edge.dart';
@@ -9,7 +11,7 @@ void main() {
 
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
+      log('Set enabled ${methodCall.arguments}');
     });
   });
 
@@ -17,7 +19,7 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await EdgeToEdge.platformVersion, '42');
+  test('setEnabled', () async {
+    await EdgeToEdge.enable(true);
   });
 }

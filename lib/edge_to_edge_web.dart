@@ -26,8 +26,8 @@ class EdgeToEdgeWeb {
   /// https://flutter.dev/go/federated-plugins
   Future<dynamic> handleMethodCall(MethodCall call) async {
     switch (call.method) {
-      case 'getPlatformVersion':
-        return getPlatformVersion();
+      case 'setEnabled': // do nothing
+        return Future.value();
       default:
         throw PlatformException(
           code: 'Unimplemented',
