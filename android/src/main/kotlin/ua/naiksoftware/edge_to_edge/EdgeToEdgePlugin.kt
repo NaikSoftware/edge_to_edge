@@ -58,6 +58,7 @@ class EdgeToEdgePlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     }
 
     private fun setEdgeToEdgeEnabled(enabled: Boolean) {
+        if (android.os.Build.VERSION.SDK_INT < 30) return; // Works with bugs in Flutter on lower versions
         val window = activity?.window
         if (window != null) {
             WindowCompat.setDecorFitsSystemWindows(window, !enabled)
